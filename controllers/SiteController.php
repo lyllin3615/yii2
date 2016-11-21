@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use yii\web\Cookie;
+use app\models\TestForm;
 class SiteController extends Controller
 {
     /**
@@ -148,4 +149,45 @@ class SiteController extends Controller
 	{
         print_r(Yii::$app->request->post());
 	}	
+	
+	/**
+	 *  say-message方法
+	 * @param string $message
+	 * @return Ambigous <string, string>
+	 */
+	public function actionSayMessage($message = 'Hi,lin3615')
+	{
+	    return $this->render('sayMessage',['message'=> $message]);
+	}
+	
+	/**
+	 * 表单提交
+	 * @return Ambigous <string, string>
+	 */
+	public function actionTest()
+	{
+	    // 头部引入这文件
+	   $testForm = new TestForm();
+        return $this->render('form', ['model'=>$testForm]);
+	  
+	}
+	
+	/**
+	 * 获取表单提交过来的数据
+	 */
+	public function actionTestDeal()
+	{
+	    // 获取 post提交的数据
+	    $testForm = new TestForm();
+	    print_r($_REQUEST);
+	    /*
+	     * Array
+            (
+                [name] => bbb
+                [email] => SSSS@QQ.COM
+                [_csrf] => LWU1ODZVYjlJFgd/USdVaXUxBmBaYTYMajRyd2A0VGAeHABbWWcpbA==
+                [submit] => 提交
+            )
+	     */
+	}
 }
