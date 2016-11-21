@@ -53,7 +53,9 @@ $config = [
             'rules'=>[
             ''=>'site/index',
             '<module:\w+>/<controller:\w+>' => '<module>/<controller>/view',
+                                            即：访问 module/controller实际为 module/controller/view即 module为模块,controller为控制器名称，view为控制器中的方法
             '<controller:\w+>/<action:\w+>/<name:\w+>/<item:\w+>/<id:\d+>'=>'<controller>/<action>',
+                                           即:访问controller/action/name/item/3,实际为 controller/action&name=name&item=item&id=3
             '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',         
               //  '<controller:\w+>/<action:\w+>/<name:\w+>/<item:\w+>/<id:\d+>'=>'<controller>/<action>',
              // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
@@ -72,7 +74,8 @@ $config = [
                // '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:\w+>/<name:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/<name:\w+>/<item:\w+>/<id:\d+>'=>'<controller>/<action>',
-               '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+               '<controller:\w+>/<action:\w+>/<id:\d+>/<name:\w+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                 //  '<controller:\w+>/<action:\w+>/<name:\w+>/<item:\w+>/<id:\d+>'=>'<controller>/<action>',
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
         // '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
